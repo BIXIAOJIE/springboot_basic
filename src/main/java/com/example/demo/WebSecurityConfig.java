@@ -15,6 +15,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        System.out.println("Spring Security Register");
         http
                 .authorizeRequests()
                 .antMatchers("/", "/home").permitAll()
@@ -31,6 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     @Override
     public UserDetailsService userDetailsService() {
+        System.out.println("产生一个用户");
         UserDetails user =
                 User.withDefaultPasswordEncoder()
                         .username("user")
